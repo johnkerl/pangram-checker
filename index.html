@@ -3,21 +3,27 @@
 
 <head>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
-<meta name="description" content="Pangram-checker example page" />
+<meta name="description" content="Pangram checker" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- mobile-friendly -->
-<title>Pangram-checker example page</title>
+<title>Pangram checker</title>
 <link rel="stylesheet" type="text/css" href="./sample.css">
 </head>
 
 <body>
 
 <!-- ================================================================ -->
-<h1><span class="boxed-text">Pangram-checker example page</span></h1>
+<h1><span class="boxed-text">Pangram checker</span></h1>
 
-<textarea rows=5 cols=100 id="pangram-checker-input">
+<p/> Enter text to see if it&rsquo;s a <a href= https://en.wikipedia.org/wiki/Pangram">pangram</a>:
+
+<p/>
+
+<div>
+<textarea placeholder="The quick brown fox jumped over the lazy dogs" rows=5 cols=100 id="pangram-checker-input">
 </textarea>
+<div>
 
-<br/>
+<p/>
 
 <div>
   Letters present:
@@ -27,6 +33,12 @@
   Letters absent:
   <span id="pangram-checker-absent-output"> </span>
 </div>
+
+<p/>
+
+<button class="maroon" id="alpha-button"> Alphabetize </button>
+<button class="maroon" id="freq-button"> Arrange by frequency </button>
+<button class="maroon" id="scramble-button"> Scramble </button>
 
 <!-- ================================================================ -->
 <hr/>
@@ -41,14 +53,44 @@ Source: <a href="https://github.com/johnkerl/pangram-checker">https://github.com
 
   const pangramChecker = new PangramChecker();
 
-  const inputElement = document.getElementById('pangram-checker-input');
+  const inputElement         = document.getElementById('pangram-checker-input');
   const presentOutputElement = document.getElementById('pangram-checker-present-output');
-  const absentOutputElement = document.getElementById('pangram-checker-absent-output');
+  const absentOutputElement  = document.getElementById('pangram-checker-absent-output');
+  
+  const alphaButton          = document.getElementById('alpha-button')
+  const freqButton           = document.getElementById('freq-button')
+  const scrambleButton       = document.getElementById('scramble-button')
 
-  inputElement.addEventListener('input', function(event) {showCounts(event)});
+  inputElement.addEventListener('input',   function(event) { showCounts(event) });
+  alphaButton.addEventListener('click',    function(event) { alphabetize(event) });
+  freqButton.addEventListener('click',     function(event) { arrangeByFrequency(event) });
+  scrambleButton.addEventListener('click', function(event) { scramble(event) });
+
+  // Initial render:
+  // * Show the present/absent lists -- all present, no absent, if the text hasn't been entered yet
+  // * Or, if there was a page reload with text in the textarea, acknowledge it
+  update(inputElement.value)
 
   function showCounts(event) {
-    const text = event.target.value
+    update(event.target.value)
+  }
+
+  function alphabetize(event) {
+    pangramChecker.alphabetize();
+    update(inputElement.value);
+  }
+
+  function arrangeByFrequency(event) {
+    pangramChecker.arrangeByFrequency();
+    update(inputElement.value);
+  }
+
+  function scramble(event) {
+    pangramChecker.scramble();
+    update(inputElement.value);
+  }
+
+  function update(text) {
     const counts = pangramChecker.getCounts(text)
     presentOutputElement.textContent = formatLetters(counts.present)
     absentOutputElement.textContent = formatLetters(counts.absent)
