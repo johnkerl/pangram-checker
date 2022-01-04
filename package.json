@@ -1,0 +1,19 @@
+{
+  "name": "jko-toggler",
+  "version": "1.0.0",
+  "description": "https://github.com/johnkerl/jko-toggler",
+  "main": "jko-toggler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnkerl/jko-toggler.git"
+  },
+  "author": "John Kerl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnkerl/jko-toggler/issues"
+  },
+  "homepage": "https://github.com/johnkerl/jko-toggler#readme"
+}

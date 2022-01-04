@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<meta name="description" content="Pangram-checker example page" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- mobile-friendly -->
+<title>Pangram-checker example page</title>
+<link rel="stylesheet" type="text/css" href="./sample.css">
+</head>
+
+<body>
+
+<!-- ================================================================ -->
+<h1><span class="boxed-text">Pangram-checker example page</span></h1>
+
+<textarea rows=5 cols=100 id="pangram-checker-input">
+</textarea>
+
+<br/>
+
+<div>
+  Letters present:
+  <span id="pangram-checker-present-output"> </span>
+</div>
+<div>
+  Letters absent:
+  <span id="pangram-checker-absent-output"> </span>
+</div>
+
+<!-- ================================================================ -->
+<hr/>
+
+<p>
+Source: <a href="https://github.com/johnkerl/pangram-checker">https://github.com/johnkerl/pangram-checker</a>
+</p>
+
+<!-- ================================================================ -->
+<script src="./pangram-checker.js"></script>
+<script>
+
+  const pangramChecker = new PangramChecker();
+
+  const inputElement = document.getElementById('pangram-checker-input');
+  const presentOutputElement = document.getElementById('pangram-checker-present-output');
+  const absentOutputElement = document.getElementById('pangram-checker-absent-output');
+
+  inputElement.addEventListener('input', function(event) {showCounts(event)});
+
+  function showCounts(event) {
+    const text = event.target.value
+    const counts = pangramChecker.getCounts(text)
+    presentOutputElement.textContent = formatLetters(counts.present)
+    absentOutputElement.textContent = formatLetters(counts.absent)
+  }
+
+  function formatLetters(letters) {
+    return letters.join(' ').toUpperCase()
+  }
+
+</script>
+<!-- ================================================================ -->
+</body>
+</html>
