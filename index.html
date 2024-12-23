@@ -94,7 +94,7 @@ Source: <a href="https://github.com/johnkerl/pangram-checker">https://github.com
     const counts = pangramChecker.getCounts(text)
     presentOutputElement.textContent = formatLetters(counts.present)
     if (counts.absent.length == 0) {
-    absentOutputElement.textContent = "none -- hurray!"
+      absentOutputElement.textContent = "none -- hurray!"
     } else {
       absentOutputElement.textContent = formatLetters(counts.absent)
     }
