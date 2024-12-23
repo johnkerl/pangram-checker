@@ -1,19 +1,19 @@
 {
-  "name": "jko-toggler",
+  "name": "pangram-checker",
   "version": "1.0.0",
-  "description": "https://github.com/johnkerl/jko-toggler",
-  "main": "jko-toggler.js",
+  "description": "https://github.com/johnkerl/pangram-checker",
+  "main": "pangram-checker.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/johnkerl/jko-toggler.git"
+    "url": "git+https://github.com/johnkerl/pangram-checker.git"
   },
   "author": "John Kerl",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/johnkerl/jko-toggler/issues"
+    "url": "https://github.com/johnkerl/pangram-checker/issues"
   },
-  "homepage": "https://github.com/johnkerl/jko-toggler#readme"
+  "homepage": "https://github.com/johnkerl/pangram-checker#readme"
 }
