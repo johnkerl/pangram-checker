@@ -1,42 +1,4 @@
-/* ---------------------------------------------------------------- */
-a:link {
-  color: maroon;
-}
-a:visited {
-  color: maroon;
-}
-a:active {
-  color: maroon;
-}
-
-button {
-  font-weight: bold;
-  color: maroon;
-  border: 0;
-  padding: 4px;
-  border-radius: 4px;
-  margin: 4px;
-}
-
-.boxed-text {
-  border: 1px solid black;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 8px;
-  padding-right: 8px;
-}
-.center {
-  text-align: center;
-}
-.maroon {
-  color: maroon;
-}
-.boldmaroon {
-  font-weight: bold;
-  color: maroon;
-}
-
-/* ---------------------------------------------------------------- */
+/* BODY */
 body {
   color: black;
   background-color: white;
@@ -61,4 +23,52 @@ h3 {
   font-weight: bold;
   color: maroon;
   font-size: 100%
+}
+
+a:link {
+  color: maroon;
+}
+a:visited {
+  color: maroon;
+}
+a:active {
+  color: maroon;
+}
+
+.boxed-text {
+  border: 1px solid black;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.center {
+  text-align: center;
+}
+.maroon {
+  color: maroon;
+}
+.boldmaroon {
+  font-weight: bold;
+  color: maroon;
+}
+
+/* BUTTONS */
+button {
+  font-weight: bold;
+  color: maroon;
+  border: 0;
+  padding: 4px;
+  border-radius: 4px;
+  margin: 4px;
+}
+
+button.selected {
+  font-weight: bold;
+}
+button.deselected {
+  font-weight: normal;
+}
+button:hover {
+  background-color: #d8d8d8;
 }

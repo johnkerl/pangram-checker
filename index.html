@@ -36,9 +36,9 @@
 
 <p/>
 
-<button class="maroon" id="alpha-button"> Alphabetize </button>
-<button class="maroon" id="freq-button"> Arrange by frequency </button>
-<button class="maroon" id="scramble-button"> Scramble </button>
+<button class="maroon, selected" id="alpha-button"> Alphabetize </button>
+<button class="maroon, deselected" id="freq-button"> Arrange by frequency </button>
+<button class="maroon, deselected" id="scramble-button"> Scramble </button>
 
 <!-- ================================================================ -->
 <hr/>
@@ -62,9 +62,33 @@ Source: <a href="https://github.com/johnkerl/pangram-checker">https://github.com
   const scrambleButton       = document.getElementById('scramble-button')
 
   inputElement.addEventListener('input',   function(event) { showCounts(event) });
-  alphaButton.addEventListener('click',    function(event) { alphabetize(event) });
-  freqButton.addEventListener('click',     function(event) { arrangeByFrequency(event) });
-  scrambleButton.addEventListener('click', function(event) { scramble(event) });
+  alphaButton.addEventListener('click',    function(event) {
+    alphabetize(event)
+    alphaButton.classList.add('selected')
+    alphaButton.classList.remove('deselected')
+    freqButton.classList.add('deselected')
+    freqButton.classList.remove('selected')
+    scrambleButton.classList.add('deselected')
+    scrambleButton.classList.remove('selected')
+  });
+  freqButton.addEventListener('click',     function(event) {
+    arrangeByFrequency(event)
+    alphaButton.classList.add('deselected')
+    alphaButton.classList.remove('selected')
+    freqButton.classList.add('selected')
+    freqButton.classList.remove('deselected')
+    scrambleButton.classList.add('deselected')
+    scrambleButton.classList.remove('selected')
+  });
+  scrambleButton.addEventListener('click', function(event) {
+    scramble(event)
+    alphaButton.classList.add('deselected')
+    alphaButton.classList.remove('selected')
+    freqButton.classList.add('deselected')
+    freqButton.classList.remove('selected')
+    scrambleButton.classList.add('selected')
+    scrambleButton.classList.remove('deselected')
+  });
 
   // Initial render:
   // * Show the present/absent lists -- all present, no absent, if the text hasn't been entered yet
