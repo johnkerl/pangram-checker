@@ -56,11 +56,12 @@ a:active {
 /* BUTTONS */
 button {
   font-weight: bold;
-  color: maroon;
+  color: #e0e0e0;
+  background-color: maroon;
   border: 0;
-  padding: 4px;
   border-radius: 4px;
   margin: 4px;
+  padding: 6px;
 }
 
 button.selected {
@@ -70,5 +71,6 @@ button.deselected {
   font-weight: normal;
 }
 button:hover {
-  background-color: #d8d8d8;
+  margin: 5px;
+  padding: 5px;
 }
